@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,App} from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -42,6 +43,12 @@ export class TabHomePage {
   login()
   {
     this.app.getRootNav().push(LoginPage);
+  }
+
+  logout()
+  {
+    localStorage.removeItem('userData');
+    this.navCtrl.setRoot(TabsPage);
   }
 
 }

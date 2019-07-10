@@ -36,7 +36,7 @@
       <div class="box-c-right" style="color:#fff">
         <h2>Good Morning...</h2>
         <p>{{userDetail.fullname}}</p>
-        <button ion-button color="light" round outline>Logout</button>
+        <button ion-button color="light" round outline (click)="logout()" *ngIf="loginsStatus==false">Logout</button>
       </div>
     </div>
   </div>
