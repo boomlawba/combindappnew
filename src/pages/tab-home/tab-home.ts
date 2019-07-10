@@ -10,11 +10,25 @@ import { LoginPage } from '../login/login';
 })
 export class TabHomePage {
 
+  userDetail:any;
+  loginsStatus:boolean;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public app:App) {
+
+      //อ่านค่าจาก Local Storage
+     const data = JSON.parse(localStorage.getItem('userData'));
+     if(data==null)
+     {
+     this.userDetail = {fullname:'Your are guest'};
+     this.loginsStatus = true;
+     }else{
+     this.userDetail = data.userData;
+     this.loginsStatus = false;
   }
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabHomePage');
