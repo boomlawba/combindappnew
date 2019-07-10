@@ -19,6 +19,9 @@ import { SideSettingPage } from '../pages/side-setting/side-setting';
 import { SideSchehulePage } from '../pages/side-schehule/side-schehule';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
+import { WebapiServiceProvider } from '../providers/webapi-service/webapi-service';
+import { HttpModule } from '@angular/http';
+import { GlobalProvider } from '../providers/global/global';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { LoginPage } from '../pages/login/login';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule
+  
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +64,9 @@ import { LoginPage } from '../pages/login/login';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WebapiServiceProvider,
+    GlobalProvider
   ]
 })
 export class AppModule {}
