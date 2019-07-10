@@ -21,7 +21,7 @@ export class RegisterPage {
     }
 
     //ตัวแปรรับข้อมูลจาก api
-    responseDAta:any;
+    responseData:any;
 
   constructor(
     public navCtrl: NavController,
@@ -46,5 +46,23 @@ export class RegisterPage {
   signup()
   {
     console.log(this.userData);
+    //console.log(this.userData);
+    this.webapi.postData(this.userData,'register.php').then((result)=>{
+      this.responseData = result;
+      //console.log(this.responseData);
+      if(this.responseData.userData){
+        let alert = this.alertCtrl.create({
+          title:"สถานะการลงทะเบียน",
+          subTitle:"ลงทะเบียนเรียบร้อยแล้ว",
+          buttons:['Dismiss']
+        });
+        alert.present();
+        // ส่งกลับไปหน้าหลัก (dashboard)
+        this.navCtrl.setRoot(TabsPage);
+      }
+    },(err)=>{
+      console.log(err);
+    });
   }
+
 }
