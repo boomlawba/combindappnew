@@ -23,6 +23,22 @@ import { WebapiServiceProvider } from '../providers/webapi-service/webapi-servic
 import { HttpModule } from '@angular/http';
 import { GlobalProvider } from '../providers/global/global';
 import { CousedetailPage } from '../pages/cousedetail/cousedetail';
+import { TabChatPage } from '../pages/tab-chat/tab-chat';
+
+
+//FIREBASE MODULE
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+
+var config = {
+  apiKey: "AIzaSyClrkrRMkBoKYT4LUJez8otTDHNL4kSpAA",
+  authDomain: "combindappchat1.firebaseapp.com",
+  databaseURL: "https://combindappchat1.firebaseio.com",
+  projectId: "combindappchat1",
+  storageBucket: "combindappchat1.appspot.com",
+  messagingSenderId: "445836641002",
+};
 
 @NgModule({
   declarations: [
@@ -39,12 +55,15 @@ import { CousedetailPage } from '../pages/cousedetail/cousedetail';
     SideSchehulePage,
     RegisterPage,
     LoginPage,
-    CousedetailPage
+    CousedetailPage,
+    TabChatPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule
   
   ],
   bootstrap: [IonicApp],
@@ -62,7 +81,8 @@ import { CousedetailPage } from '../pages/cousedetail/cousedetail';
     SideSchehulePage,
     RegisterPage,
     LoginPage,
-    CousedetailPage
+    CousedetailPage,
+    TabChatPage
   ],
   providers: [
     StatusBar,
