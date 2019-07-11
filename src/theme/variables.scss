@@ -39,10 +39,10 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  lightbutton: #b134ae,
+  lightbutton: #b134ae
 );
 
-//Androin and ios
+// Andorid and IOS
 $tabs-background: color($colors,lightbutton);
 $tabs-tab-color-inactive: color($colors,light);
 $tabs-tab-color-active: color($colors,light);
@@ -60,8 +60,6 @@ $toolbar-background: color($colors,lightbutton);
 // Material Design only Sass variables can go here
 $tabs-md-tab-text-color:color($colors,light);
 $tabs-md-tab-icon-color:color($colors,light);
-
-
 
 // App Windows Variables
 // --------------------------------------------------

@@ -4,32 +4,32 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabHomePage } from '../pages/tab-home/tab-home';
 import { TabCoursePage } from '../pages/tab-course/tab-course';
 import { TabServicePage } from '../pages/tab-service/tab-service';
-import { TabContactPage } from '../pages/tab-contact/tab-contact';
 import { TabArticlePage } from '../pages/tab-article/tab-article';
-import { TabsPage } from '../pages/tabs/tabs';
+import { TabContactPage } from '../pages/tab-contact/tab-contact';
 import { SidePaymentPage } from '../pages/side-payment/side-payment';
 import { SidePortfolioPage } from '../pages/side-portfolio/side-portfolio';
+import { SideSchedulePage } from '../pages/side-schedule/side-schedule';
 import { SideSettingPage } from '../pages/side-setting/side-setting';
-import { SideSchehulePage } from '../pages/side-schehule/side-schehule';
+import { TabsPage } from '../pages/tabs/tabs';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { WebapiServiceProvider } from '../providers/webapi-service/webapi-service';
 import { HttpModule } from '@angular/http';
 import { GlobalProvider } from '../providers/global/global';
-import { CousedetailPage } from '../pages/cousedetail/cousedetail';
+import { CoursedetailPage } from '../pages/coursedetail/coursedetail';
 import { TabChatPage } from '../pages/tab-chat/tab-chat';
+import { ShowpushdetailPage } from '../pages/showpushdetail/showpushdetail';
 
+/*** FIREBASE MODULE ***/
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-//FIREBASE MODULE
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-
+import { NativeAudio } from '@ionic-native/native-audio';
 
 var config = {
   apiKey: "AIzaSyClrkrRMkBoKYT4LUJez8otTDHNL4kSpAA",
@@ -40,23 +40,27 @@ var config = {
   messagingSenderId: "445836641002",
 };
 
+/**** PUSH NOTIFICATION ***/
+import { FCM } from '@ionic-native/fcm'; 
+
 @NgModule({
   declarations: [
     MyApp,
     TabHomePage,
     TabCoursePage,
     TabServicePage,
-    TabContactPage,
     TabArticlePage,
+    TabContactPage,
     TabsPage,
     SidePaymentPage,
     SidePortfolioPage,
+    SideSchedulePage,
     SideSettingPage,
-    SideSchehulePage,
     RegisterPage,
     LoginPage,
-    CousedetailPage,
-    TabChatPage
+    CoursedetailPage,
+    TabChatPage,
+    ShowpushdetailPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,6 @@ var config = {
     HttpModule,
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule
-  
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -72,24 +75,27 @@ var config = {
     TabHomePage,
     TabCoursePage,
     TabServicePage,
-    TabContactPage,
     TabArticlePage,
+    TabContactPage,
     TabsPage,
     SidePaymentPage,
     SidePortfolioPage,
+    SideSchedulePage,
     SideSettingPage,
-    SideSchehulePage,
     RegisterPage,
     LoginPage,
-    CousedetailPage,
-    TabChatPage
+    CoursedetailPage,
+    TabChatPage,
+    ShowpushdetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WebapiServiceProvider,
-    GlobalProvider
+    GlobalProvider,
+    NativeAudio,
+    FCM
   ]
 })
 export class AppModule {}

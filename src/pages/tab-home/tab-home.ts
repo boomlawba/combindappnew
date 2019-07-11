@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,App} from 'ionic-angular';
+import { IonicPage, NavController, NavParams , App } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { TabsPage } from '../tabs/tabs';
@@ -12,24 +12,27 @@ import { TabsPage } from '../tabs/tabs';
 export class TabHomePage {
 
   userDetail:any;
-  loginsStatus:boolean;
+  loginStatus:boolean;
+  getTokenKey:any;
 
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams,
-    public app:App) {
+    public navParams: NavParams, 
+    public app: App) {
 
-      //อ่านค่าจาก Local Storage
-     const data = JSON.parse(localStorage.getItem('userData'));
-     if(data==null)
-     {
-     this.userDetail = {fullname:'Your are guest'};
-     this.loginsStatus = true;
-     }else{
-     this.userDetail = data.userData;
-     this.loginsStatus = false;
+      this.getTokenKey = localStorage.getItem('token_key');
+
+        // อ่านค่าจาก Local Storage
+        const data = JSON.parse(localStorage.getItem('userData'));
+        if(data == null){
+          this.userDetail = {fullname:'Your are guest'};
+          this.loginStatus = true;
+        }else{
+          this.userDetail = data.userData;
+          this.loginStatus = false;
+        }
+        
   }
-}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabHomePage');
