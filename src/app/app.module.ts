@@ -22,6 +22,7 @@ import { LoginPage } from '../pages/login/login';
 import { WebapiServiceProvider } from '../providers/webapi-service/webapi-service';
 import { HttpModule } from '@angular/http';
 import { GlobalProvider } from '../providers/global/global';
+import { CousedetailPage } from '../pages/cousedetail/cousedetail';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { GlobalProvider } from '../providers/global/global';
     SideSettingPage,
     SideSchehulePage,
     RegisterPage,
-    LoginPage
+    LoginPage,
+    CousedetailPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { GlobalProvider } from '../providers/global/global';
     SideSettingPage,
     SideSchehulePage,
     RegisterPage,
-    LoginPage
+    LoginPage,
+    CousedetailPage
   ],
   providers: [
     StatusBar,
